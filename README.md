@@ -10,7 +10,7 @@ ICML, 2023\
 ![](./docs/figures/lru.png)
 
 <p style="text-align: center;">
-Figure 1:  Visual summary of the LRU architecture (taken from the LRU paper).
+Figure 1: Visual summary of the LRU architecture (taken from the LRU paper).
 </p>
 
 The goal of this project is to provide a concise codebase that contains everything needed to run a
@@ -24,11 +24,11 @@ choices (e.g. on type of nonlinear processing in a layer), we refer to the S5 co
 
 ## Requirements & Installation
 
-To run the code on your own machine, run `pip install -r requirements.txt`. The GPU installation of
-JAX can be tricky; further instructions are available on how to install it
-[here](https://github.com/google/jax#installation). PyTorch also needs to be installed separately
-because of interference issues with jax: install the CPU version of pytorch from
-[this page](https://pytorch.org/get-started/locally/).
+To run the tested tasks mentioned below on your own machine, configure your environment using the Anaconda virtual environment configuration file located at `./envconfig/Task_1to4_env.yml` (examined)
+or
+In a Python 3.9 environment, run `pip install -r requirements.txt` (not examined). 
+The GPU installation of JAX can be tricky; further instructions are available on how to install it [here](https://github.com/google/jax#installation). 
+PyTorch needs to be installed carefully because of interference issues with JAX: install the CPU version of PyTorch from [this page](https://pytorch.org/get-started/locally/).
 
 ### Data Download
 
@@ -87,7 +87,7 @@ it once it is asked to (by default 8 time steps after the end of the pattern).
 python run_train.py --dataset copy-classification --pooling none --epochs 4
 ```
 
-It is crucial to have no pooling for this task. 100% test accuracy should be recheable in 2-4 epochs
+It is crucial to have no pooling for this task. 100% test accuracy should be reachable in 2-4 epochs
 with the default architecture and hyperparameters.
 
 ### Sequential CIFAR
@@ -112,7 +112,7 @@ integer, thus making it a ten-way balanced classification problem.
 python run_train.py --dataset listops-classification --epochs 40
 ```
 
-### IMdB
+### IMDb
 
 The network is given a sequence of bytes representing a text and has to classify the document into
 two categories.

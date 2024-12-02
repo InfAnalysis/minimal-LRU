@@ -1,4 +1,5 @@
-name: lru-torch
+# This is the conda environment configuration file for running Copytask. Since there is already an environment configuration that can run 4 tasks,
+# please prioritize using `envconfig/4tasks_env.yml`.
 channels:
   - pytorch
   - defaults
@@ -134,4 +135,3 @@ dependencies:
       - xxhash==3.5.0
       - yarl==1.18.0
       - zipp==3.20.2
-prefix: /opt/homebrew/anaconda3/envs/lru-torch
