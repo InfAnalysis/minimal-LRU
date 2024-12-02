@@ -24,9 +24,9 @@ choices (e.g. on type of nonlinear processing in a layer), we refer to the S5 co
 
 ## Requirements & Installation
 
-To run the tested tasks mentioned below on your own machine, configure your environment using the Anaconda virtual environment configuration file located at `./envconfig/Task_1to4_env.yml` (examined)
+To run the tested tasks mentioned below on your own machine, configure your environment using the Anaconda virtual environment configuration file located at `./envconfig/Task_1to4_env.yml` (recommended)
 or
-In a Python 3.9 environment, run `pip install -r requirements.txt` (not examined). 
+In a Python 3.9 environment, run `pip install -r requirements.txt`. 
 The GPU installation of JAX can be tricky; further instructions are available on how to install it [here](https://github.com/google/jax#installation). 
 PyTorch needs to be installed carefully because of interference issues with JAX: install the CPU version of PyTorch from [this page](https://pytorch.org/get-started/locally/).
 
