@@ -168,3 +168,6 @@ raw_data/
 
 # VS Code
 .vscode/
+
+# MacOS .DS_Store files
+.DS_Store
