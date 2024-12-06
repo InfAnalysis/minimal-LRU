@@ -12,6 +12,8 @@ import torchvision
 from einops.layers.torch import Rearrange, Reduce
 from PIL import Image  # Only used for Pathfinder
 from datasets import DatasetDict, Value, load_dataset
+from torchtext.data.utils import get_tokenizer
+from torchtext.vocab import build_vocab_from_iterator
 
 from .base import default_data_path, SequenceDataset, ImageResolutionSequenceDataset
 
@@ -93,7 +95,7 @@ class IMDB(SequenceDataset):
         dataset = load_dataset(self._name_, cache_dir=self.data_dir)
         dataset = DatasetDict(train=dataset["train"], test=dataset["test"])
         if self.level == "word":
-            tokenizer = torchtext.data.utils.get_tokenizer("spacy", language="en_core_web_sm")
+            tokenizer = get_tokenizer("spacy", language="en_core_web_sm")
         else:  # self.level == 'char'
             tokenizer = list  # Just convert a string to a list of chars
         # Account for <bos> and <eos> tokens
@@ -109,7 +111,7 @@ class IMDB(SequenceDataset):
             load_from_cache_file=False,
             num_proc=max(self.n_workers, 1),
         )
-        vocab = torchtext.vocab.build_vocab_from_iterator(
+        vocab = build_vocab_from_iterator(
             dataset["train"]["tokens"],
             min_freq=self.min_freq,
             specials=(
@@ -312,7 +314,7 @@ class ListOps(SequenceDataset):
             load_from_cache_file=False,
             num_proc=max(self.n_workers, 1),
         )
-        vocab = torchtext.vocab.build_vocab_from_iterator(
+        vocab = build_vocab_from_iterator(
             dataset["train"]["tokens"],
             specials=(
                 ["<pad>", "<unk>"]
@@ -668,7 +670,7 @@ class AAN(SequenceDataset):
             load_from_cache_file=False,
             num_proc=max(self.n_workers, 1),
         )
-        vocab = torchtext.vocab.build_vocab_from_iterator(
+        vocab = build_vocab_from_iterator(
             dataset["train"]["tokens1"] + dataset["train"]["tokens2"],
             specials=(
                 ["<pad>", "<unk>"]
